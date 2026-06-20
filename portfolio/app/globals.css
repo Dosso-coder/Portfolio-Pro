@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0d0d12;
+  --foreground: #ffffff;
+  --bg: #0d0d12;
+  --bg2: #13101e;
+  --bg3: #1a1028;
+  --border: #1e1530;
+  --border2: #2a1a42;
+  --text: #ffffff;
+  --text2: #cccccc;
+  --text3: #888888;
+  --text4: #666666;
+  --card-bg: #1a1028;
+  --form-bg: #13101e;
+  --input-bg: #0d0d12;
+  --chip-bg: #1a1028;
+  --chip-border: #2e1f4a;
+  --lv-bon-bg: #2d1a4a;
+  --lv-bon-c: #c084fc;
+  --lv-inter-bg: #2a1235;
+  --lv-inter-c: #e879f9;
+  --lv-base-bg: #1f0f2e;
+  --lv-base-c: #a855f7;
+  --skill-body: #13101e;
+  --social-bg: #1a1028;
+  --bubble-bg: #1a0f2e;
+  --bubble-border: #7c3aed;
+}
+
+.light {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --bg: #ffffff;
+  --bg2: #fdf4ff;
+  --bg3: #f3e8ff;
+  --border: #f3e8ff;
+  --border2: #e9d5ff;
+  --text: #1a1a1a;
+  --text2: #333333;
+  --text3: #888888;
+  --text4: #aaaaaa;
+  --card-bg: #ffffff;
+  --form-bg: #fdf4ff;
+  --input-bg: #ffffff;
+  --chip-bg: #ffffff;
+  --chip-border: #f3e8ff;
+  --lv-bon-bg: #f3e8ff;
+  --lv-bon-c: #7c3aed;
+  --lv-inter-bg: #fce7f3;
+  --lv-inter-c: #c026d3;
+  --lv-base-bg: #fdf2f8;
+  --lv-base-c: #ec4899;
+  --skill-body: #ffffff;
+  --social-bg: #f3e8ff;
+  --bubble-bg: #fdf4ff;
+  --bubble-border: #e879f9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.skill-body {
+  background: var(--skill-body);
+}
+
+section {
+  scroll-margin-top: 76px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 760px) {
+  footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  section {
+    scroll-margin-top: 68px;
+  }
+}
