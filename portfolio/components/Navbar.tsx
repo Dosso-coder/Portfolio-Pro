@@ -24,7 +24,7 @@ export default function Navbar({ isDark, onToggleTheme }: NavbarProps) {
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-4 md:px-8">
         <span className="text-[17px] font-medium whitespace-nowrap" style={{ color: 'var(--text)' }}>
-          Sal<span className="text-[#C026D3]">.</span>Dev
+          Sami<span className="text-[#C026D3]">.</span>Dev
         </span>
 
         <div className="hidden flex-1 justify-center gap-7 md:flex">

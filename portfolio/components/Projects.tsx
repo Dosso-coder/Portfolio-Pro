@@ -12,7 +12,6 @@ interface Project {
   techs: string[]
   features: string[]
   link: string
-  logo: string
   badgeColor: string
   bgColor: string
 }
@@ -21,15 +20,14 @@ const projects: Project[] = [
   // Ajoute tes projets ici en copiant le même format.
   {
     id: 1,
-    name: 'Météo en temps réel',
-    category: 'App météo',
-    description: 'Géolocalisation, prévisions 7 jours, design responsive.',
+    name: 'GAAP',
+    category: 'projet de groupe',
+    description: 'application web pour faciliter la gestion des heure et tâches des enseignant ,secretaire et administion de uvci',
     details: 'Application météo pensée pour consulter rapidement les conditions actuelles et les prévisions. Le projet met l’accent sur une interface claire, une lecture rapide des données et une adaptation mobile.',
-    image: '',
-    techs: ['React', 'API'],
-    features: ['Recherche par ville', 'Prévisions sur 7 jours', 'Interface responsive'],
-    link: '#',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+    image: '/images/projet1.png',
+    techs: ['React', 'API Laravel'],
+    features: ['application de gestion dess heures des enseignants : CAS DE L´UNIVERSITÉ VIRTUELLE DE CÔTE D´IVOIRE'],
+    link: 'https://pct-frontend-7s4q.vercel.app/',
     badgeColor: '#7C3AED',
     bgColor: '#1a0f2e',
   },
@@ -43,7 +41,6 @@ const projects: Project[] = [
     techs: ['Node.js', 'SQL'],
     features: ['Panier dynamique', 'Gestion des produits', 'Tableau de bord admin'],
     link: '#',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
     badgeColor: '#C026D3',
     bgColor: '#200d30',
   },
@@ -57,7 +54,6 @@ const projects: Project[] = [
     techs: ['Python', 'Chart.js'],
     features: ['Graphiques dynamiques', 'Filtres par période', 'Export des données'],
     link: '#',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
     badgeColor: '#9333EA',
     bgColor: '#1a1028',
   },
@@ -71,7 +67,6 @@ const projects: Project[] = [
     techs: ['Python', 'Chart.js'],
     features: ['Graphiques dynamiques', 'Filtres par période', 'Export des données'],
     link: '#',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
     badgeColor: '#9333EA',
     bgColor: '#1a1028',
   },
@@ -83,7 +78,7 @@ export default function Projects() {
   return (
     <>
       <section id="projets" className="px-5 py-16 md:px-8 md:py-24" style={{ background: 'linear-gradient(135deg,#7C3AED,#C026D3,#EC4899)' }}>
-        <div className="mx-auto w-full max-w-6xl">
+        <div className="mx-auto w-full max-w-7xl">
           <div className="mb-10 text-center">
             <p className="mb-2 text-[11px] uppercase tracking-[3px]" style={{ color: 'rgba(255,255,255,0.7)' }}>Travaux</p>
             <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
@@ -91,20 +86,20 @@ export default function Projects() {
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="flex min-h-[430px] flex-col overflow-hidden rounded-[14px] border"
+                className="flex min-h-[500px] flex-col overflow-hidden rounded-[14px] border"
                 style={{ background: 'var(--card-bg)', borderColor: 'var(--border2)', transition: 'background 0.3s' }}
               >
-                <div className="relative flex h-[180px] items-center justify-center overflow-hidden" style={{ background: project.bgColor }}>
+                <div className="relative flex aspect-[16/10] min-h-[220px] items-center justify-center overflow-hidden p-3" style={{ background: project.bgColor }}>
                   {project.image ? (
-                    <img src={project.image} alt={`Aperçu du projet ${project.name}`} className="h-full w-full object-cover" />
-                  ) : project.logo ? (
-                    <img src={project.logo} alt={project.name} width={64} height={64} />
+                    <img src={project.image} alt={`Aperçu du projet ${project.name}`} className="h-full w-full rounded-[10px] object-contain" />
                   ) : (
-                    <i className="ti ti-code text-5xl" style={{ color: project.badgeColor }} />
+                    <div className="flex h-full w-full items-center justify-center px-6 text-center text-sm" style={{ color: 'var(--text3)' }}>
+                      Ajoute une capture du site avec le champ image
+                    </div>
                   )}
                   <span
                     className="absolute right-3 top-3 rounded-lg px-2.5 py-1 text-[10px] font-medium text-white"
@@ -113,7 +108,7 @@ export default function Projects() {
                     {project.category}
                   </span>
                 </div>
-                <div className="flex flex-1 flex-col p-5">
+                <div className="flex flex-1 flex-col p-4 sm:p-5">
                   <p className="mb-1 text-[10px] font-medium uppercase tracking-wider" style={{ color: '#C026D3' }}>{project.category}</p>
                   <h3 className="mb-3 text-xl font-medium" style={{ color: 'var(--text)' }}>{project.name}</h3>
                   <p className="mb-5 text-sm leading-7" style={{ color: 'var(--text3)' }}>{project.description}</p>
@@ -141,16 +136,16 @@ export default function Projects() {
                     </div>
                   )}
 
-                  <div className="mt-auto flex flex-wrap items-center justify-between gap-3">
+                  <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <button
                       type="button"
                       onClick={() => setSelectedProject(project)}
-                      className="whitespace-nowrap text-[12px] font-medium text-[#E879F9]"
+                      className="text-left text-[12px] font-medium text-[#E879F9]"
                     >
                       Voir les détails
                     </button>
                     {project.link && project.link !== '#' && (
-                      <a href={project.link} target="_blank" rel="noreferrer" className="rounded-full bg-gradient-to-br from-[#9333EA] to-[#C026D3] px-4 py-2 text-[12px] font-medium text-white">
+                      <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex justify-center rounded-full bg-gradient-to-br from-[#9333EA] to-[#C026D3] px-4 py-2 text-center text-[12px] font-medium text-white">
                         Version en ligne
                       </a>
                     )}
@@ -170,14 +165,14 @@ export default function Projects() {
             if (event.currentTarget === event.target) setSelectedProject(null)
           }}
         >
-          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border" style={{ background: 'var(--card-bg)', borderColor: 'var(--border2)' }}>
-            <div className="relative flex h-[240px] items-center justify-center overflow-hidden" style={{ background: selectedProject.bgColor }}>
+          <div className="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl border" style={{ background: 'var(--card-bg)', borderColor: 'var(--border2)' }}>
+            <div className="relative flex max-h-[60vh] min-h-[260px] items-center justify-center overflow-hidden p-4" style={{ background: selectedProject.bgColor }}>
               {selectedProject.image ? (
-                <img src={selectedProject.image} alt={`Aperçu du projet ${selectedProject.name}`} className="h-full w-full object-cover" />
-              ) : selectedProject.logo ? (
-                <img src={selectedProject.logo} alt={selectedProject.name} width={58} height={58} />
+                <img src={selectedProject.image} alt={`Aperçu du projet ${selectedProject.name}`} className="max-h-[56vh] w-full rounded-[12px] object-contain" />
               ) : (
-                <i className="ti ti-code text-5xl" style={{ color: selectedProject.badgeColor }} />
+                <div className="flex h-full w-full items-center justify-center px-6 text-center text-sm" style={{ color: 'var(--text3)' }}>
+                  Ajoute une capture du site avec le champ image
+                </div>
               )}
               <button
                 type="button"

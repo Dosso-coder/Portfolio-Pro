@@ -1,4 +1,5 @@
 const contactPhotoSrc = '/images/image1.png'
+const contactEmail = 'djeneba.dosso@epitch.eu'
 
 export default function Contact() {
   return (
@@ -34,7 +35,7 @@ export default function Contact() {
             </p>
 
             {[
-              { icon: 'ti-mail', label: 'Email', value: 'djeneba.dosso@epitch.eu' },
+              { icon: 'ti-mail', label: 'Email', value: contactEmail },
               { icon: 'ti-map-pin', label: 'Localisation', value: 'Abidjan, Côte d Ivoire' },
               { icon: 'ti-clock', label: 'Disponibilité', value: 'Immédiate' },
             ].map((item) => (
@@ -66,32 +67,41 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="rounded-[14px] border p-5 md:p-7" style={{ background: 'var(--form-bg)', borderColor: 'var(--border)' }}>
+          <form
+            action={`https://formsubmit.co/${contactEmail}`}
+            method="POST"
+            className="rounded-[14px] border p-5 md:p-7"
+            style={{ background: 'var(--form-bg)', borderColor: 'var(--border)' }}
+          >
+            <input type="hidden" name="_subject" value="Nouveau message depuis mon portfolio" />
+            <input type="hidden" name="_captcha" value="false" />
             <div className="mb-3 grid gap-3 sm:grid-cols-2">
               <div>
                 <label className="mb-1.5 block text-[11px] uppercase tracking-wider" style={{ color: 'var(--text3)' }}>Prénom</label>
-                <input type="text" placeholder="Jean" className="w-full rounded-[9px] border px-3 py-2.5 text-[13px] outline-none" style={{ background: 'var(--input-bg)', borderColor: 'var(--border2)', color: 'var(--text)', fontFamily: 'inherit' }} />
+                <input name="prenom" type="text" placeholder="Jean" required className="w-full rounded-[9px] border px-3 py-2.5 text-[13px] outline-none" style={{ background: 'var(--input-bg)', borderColor: 'var(--border2)', color: 'var(--text)', fontFamily: 'inherit' }} />
               </div>
               <div>
                 <label className="mb-1.5 block text-[11px] uppercase tracking-wider" style={{ color: 'var(--text3)' }}>Nom</label>
-                <input type="text" placeholder="Dupont" className="w-full rounded-[9px] border px-3 py-2.5 text-[13px] outline-none" style={{ background: 'var(--input-bg)', borderColor: 'var(--border2)', color: 'var(--text)', fontFamily: 'inherit' }} />
+                <input name="nom" type="text" placeholder="Dupont" required className="w-full rounded-[9px] border px-3 py-2.5 text-[13px] outline-none" style={{ background: 'var(--input-bg)', borderColor: 'var(--border2)', color: 'var(--text)', fontFamily: 'inherit' }} />
               </div>
             </div>
 
             {[
-              { label: 'Email', type: 'email', placeholder: 'jean@entreprise.com' },
-              { label: 'Sujet', type: 'text', placeholder: 'Stage / Alternance / Freelance' },
+              { label: 'Email', name: 'email', type: 'email', placeholder: 'jean@entreprise.com' },
+              { label: 'Sujet', name: 'sujet', type: 'text', placeholder: 'Stage / Alternance / Freelance' },
             ].map(f => (
               <div key={f.label} className="mb-3">
                 <label className="mb-1.5 block text-[11px] uppercase tracking-wider" style={{ color: 'var(--text3)' }}>{f.label}</label>
-                <input type={f.type} placeholder={f.placeholder} className="w-full rounded-[9px] border px-3 py-2.5 text-[13px] outline-none" style={{ background: 'var(--input-bg)', borderColor: 'var(--border2)', color: 'var(--text)', fontFamily: 'inherit' }} />
+                <input name={f.name} type={f.type} placeholder={f.placeholder} required className="w-full rounded-[9px] border px-3 py-2.5 text-[13px] outline-none" style={{ background: 'var(--input-bg)', borderColor: 'var(--border2)', color: 'var(--text)', fontFamily: 'inherit' }} />
               </div>
             ))}
 
             <div className="mb-4">
               <label className="mb-1.5 block text-[11px] uppercase tracking-wider" style={{ color: 'var(--text3)' }}>Message</label>
               <textarea
+                name="message"
                 placeholder="Décris ton projet ou opportunité..."
+                required
                 className="h-[120px] w-full resize-none rounded-[9px] border px-3 py-2.5 text-[13px] outline-none"
                 style={{ background: 'var(--input-bg)', borderColor: 'var(--border2)', color: 'var(--text)', fontFamily: 'inherit' }}
               />
@@ -101,7 +111,7 @@ export default function Contact() {
               <i className="ti ti-send text-[15px]" />
               Envoyer le message
             </button>
-          </div>
+          </form>
         </div>
       </div>
 

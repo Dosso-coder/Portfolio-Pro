@@ -28,36 +28,24 @@ const skills: Record<string, SkillCategory> = {
       { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg', level: 'Inter.', invert: true },
     ],
   },
-  Backend: {
+  'Backend & Base de données': {
     icon: 'ti-server',
-    gradient: 'linear-gradient(150deg,#7C3AED,#C026D3)',
+    gradient: 'linear-gradient(150deg,#7C3AED,#C026D3,#3B0764)',
     items: [
       { name: 'NestJS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg', level: 'Inter.' },
       { name: 'Laravel', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg', level: 'Inter.' },
       { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', level: 'Bon' },
       { name: 'PHP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', level: 'Inter.' },
-    ],
-  },
-  Design: {
-    icon: 'ti-palette',
-    gradient: 'linear-gradient(150deg,#C026D3,#DB2777)',
-    items: [
-      { name: 'Figma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', level: 'Bon' },
-    ],
-  },
-  'Base de données': {
-    icon: 'ti-database',
-    gradient: 'linear-gradient(150deg,#3B0764,#6D28D9)',
-    items: [
       { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', level: 'Bon' },
       { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg', level: 'Inter.' },
       { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', level: 'Inter.' },
     ],
   },
-  Outils: {
-    icon: 'ti-tool',
-    gradient: 'linear-gradient(150deg,#0F766E,#7C3AED)',
+  'Design & Outils': {
+    icon: 'ti-palette',
+    gradient: 'linear-gradient(150deg,#C026D3,#0F766E)',
     items: [
+      { name: 'Figma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', level: 'Bon' },
       { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', level: 'Bon' },
       { name: 'GitHub', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', level: 'Bon', invert: true },
       { name: 'VS Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg', level: 'Bon' },
@@ -82,7 +70,7 @@ export default function Skills() {
           </h2>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid items-start gap-5 md:grid-cols-3">
           {Object.entries(skills).map(([cat, data]) => (
             <div key={cat} className="overflow-hidden rounded-[14px] border" style={{ borderColor: 'var(--border)' }}>
               <div className="px-3.5 py-5 text-center" style={{ background: data.gradient }}>
