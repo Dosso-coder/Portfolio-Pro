@@ -38,7 +38,9 @@ export default function Hero() {
               Voir mes projets
             </a>
             <a
-              href="#contact"
+              href="/cv/dosso-djeneba-samira-cv.pdf"
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full border px-5 py-3 text-[13px] font-medium"
               style={{ background: 'transparent', color: '#C026D3', borderColor: '#9333EA' }}
             >

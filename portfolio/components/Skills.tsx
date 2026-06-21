@@ -46,9 +46,11 @@ const skills: Record<string, SkillCategory> = {
     gradient: 'linear-gradient(150deg,#C026D3,#0F766E)',
     items: [
       { name: 'Figma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', level: 'Bon' },
+      { name: 'Canva', icon: 'ti-brand-canva', level: 'Bon' },
       { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', level: 'Bon' },
       { name: 'GitHub', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', level: 'Bon', invert: true },
       { name: 'VS Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg', level: 'Bon' },
+      { name: 'Postman', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg', level: 'Bon' },
     ],
   },
 }

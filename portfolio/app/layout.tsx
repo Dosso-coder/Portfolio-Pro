@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Marie Dupont - Développeuse Junior",
-  description: "Portfolio de développeuse junior passionnée par le web.",
+  title: "Dosso Djeneba Samira - Développeuse web et mobile",
+  description: "Portfolio de Dosso Djeneba Samira, développeuse web et mobile junior.",
 };
 
 export default function RootLayout({

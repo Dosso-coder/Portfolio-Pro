@@ -11,7 +11,7 @@ export default function About() {
         <div>
           <p className="mb-2 text-[11px] uppercase tracking-[3px] text-[#C026D3]">À propos</p>
           <h2 className="text-3xl font-medium tracking-tight md:text-4xl" style={{ color: 'var(--text)' }}>
-            Une développeuse junior orientée interface, logique et détail.
+            Une développeuse web et mobile junior .
           </h2>
         </div>
 
@@ -20,8 +20,7 @@ export default function About() {
             Je conçois des interfaces web claires, responsives et agréables à utiliser. J’aime transformer une idée en expérience concrète, avec une attention particulière pour la structure du code, la lisibilité et les petits détails qui rendent un site plus professionnel.
           </p>
           <p className="mb-8 text-sm leading-7 md:text-base md:leading-8" style={{ color: 'var(--text3)' }}>
-            Mon objectif est de progresser sur des projets réels, collaborer avec des équipes créatives et construire des applications modernes avec React, Next.js, Tailwind CSS et des APIs.
-          </p>
+           Passionnée par la création d'interfaces web fluides, réactives et esthétiques, je traduis des maquettes graphiques en expériences digitales modernes. Mon point fort réside dans l'intégration de designs minimalistes, le développement de composants UI réutilisables et la communication fluide avec les API REST. Motivée à l'idée d'intégrer une équipe collaborative pour appliquer ma rigueur technique et contribuer au cycle de vie de vos projets.</p>
 
           <div className="grid gap-3 sm:grid-cols-3">
             {highlights.map((item) => (

@@ -1,5 +1,4 @@
 const contactPhotoSrc = '/images/image1.png'
-const contactEmail = 'djeneba.dosso@epitch.eu'
 
 export default function Contact() {
   return (
@@ -13,6 +12,7 @@ export default function Contact() {
         </div>
 
         <div className="grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          {/* Section Infos (Inchangée) */}
           <div>
             <div className="mb-6 flex items-center gap-3">
               <div
@@ -22,7 +22,7 @@ export default function Contact() {
                   borderColor: '#9333EA',
                 }}
               >
-                <img src={contactPhotoSrc} alt="Marie Dupont" className="h-full w-full rounded-full object-cover" />
+                <img src={contactPhotoSrc} alt="Dosso Djeneba Samira" className="h-full w-full rounded-full object-cover" />
               </div>
               <div>
                 <div className="text-lg font-medium" style={{ color: 'var(--text)' }}>Dosso Djeneba Samira</div>
@@ -35,7 +35,6 @@ export default function Contact() {
             </p>
 
             {[
-              { icon: 'ti-mail', label: 'Email', value: contactEmail },
               { icon: 'ti-map-pin', label: 'Localisation', value: 'Abidjan, Côte d Ivoire' },
               { icon: 'ti-clock', label: 'Disponibilité', value: 'Immédiate' },
             ].map((item) => (
@@ -67,14 +66,23 @@ export default function Contact() {
             </div>
           </div>
 
+          {/* Formulaire connecté à Web3Forms */}
           <form
-            action={`https://formsubmit.co/${contactEmail}`}
+            action="https://api.web3forms.com/submit"
             method="POST"
             className="rounded-[14px] border p-5 md:p-7"
             style={{ background: 'var(--form-bg)', borderColor: 'var(--border)' }}
           >
-            <input type="hidden" name="_subject" value="Nouveau message depuis mon portfolio" />
-            <input type="hidden" name="_captcha" value="false" />
+            {/* ICI : Remplace PAR TA CLÉ WEB3FORMS */}
+            <input type="hidden" name="access_key" value="6db3a538-c36c-4746-98ca-7af1fc3c41db" />
+            
+            {/* Options additionnelles pour personnaliser le mail reçu */}
+            <input type="hidden" name="from_name" value="Portfolio - Samira" />
+            <input type="hidden" name="subject" value="Nouveau message depuis ton Portfolio" />
+            
+            {/* Redirection après envoi (Optionnel, Web3Forms affiche une page par défaut sinon) */}
+            {/* <input type="hidden" name="redirect" value="https://tonsite.com/merci" /> */}
+
             <div className="mb-3 grid gap-3 sm:grid-cols-2">
               <div>
                 <label className="mb-1.5 block text-[11px] uppercase tracking-wider" style={{ color: 'var(--text3)' }}>Prénom</label>
@@ -107,14 +115,13 @@ export default function Contact() {
               />
             </div>
 
-            <button className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-[10px] border-0 py-3 text-[13px] font-medium text-white" style={{ background: 'linear-gradient(135deg,#9333EA,#C026D3)' }}>
+            <button type="submit" className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-[10px] border-0 py-3 text-[13px] font-medium text-white" style={{ background: 'linear-gradient(135deg,#9333EA,#C026D3)' }}>
               <i className="ti ti-send text-[15px]" />
               Envoyer le message
             </button>
           </form>
         </div>
       </div>
-
     </section>
   )
 }
