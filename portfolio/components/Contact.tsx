@@ -71,7 +71,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="text-lg font-medium" style={{ color: 'var(--text)' }}>Dosso Djeneba Samira</div>
-                <div className="mt-0.5 text-[12px] text-[#C026D3]">Développeuse web et mobile Junior</div>
+                <div className="mt-0.5 text-[12px] text-[#C026D3]">Développeuse full-stack et mobile Junior</div>
               </div>
             </div>
 

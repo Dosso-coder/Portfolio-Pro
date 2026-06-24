@@ -11,7 +11,7 @@ export default function About() {
         <div>
           <p className="mb-2 text-[11px] uppercase tracking-[3px] text-[#C026D3]">À propos</p>
           <h2 className="text-3xl font-medium tracking-tight md:text-4xl" style={{ color: 'var(--text)' }}>
-            Une développeuse web et mobile junior .
+            Une développeuse full-stack et mobile junior .
           </h2>
         </div>
 

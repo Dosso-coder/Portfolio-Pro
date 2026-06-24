@@ -19,7 +19,7 @@ export default function Hero() {
            Dosso Djeneba Samira
           </h2>
           <p className="text-[20px] font-medium tracking-widest text-[#E879F9] mb-4">
-            Développeuse web et mobile Junior
+            Développeuse full-stack et mobile Junior
           </p>
 
           {/* <h1 className="mb-5 text-2xl font-medium leading-tight tracking-tight md:text-6xl" style={{ color: 'var(--text)' }}>
@@ -44,7 +44,7 @@ export default function Hero() {
               className="rounded-full border px-5 py-3 text-[13px] font-medium"
               style={{ background: 'transparent', color: '#C026D3', borderColor: '#9333EA' }}
             >
-              Télécharger CV
+              Télécharger mon  CV
             </a>
           </div>
         </div>
