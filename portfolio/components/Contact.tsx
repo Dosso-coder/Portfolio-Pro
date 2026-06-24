@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 
 const contactPhotoSrc = '/images/image1.png';
 
@@ -6,19 +6,19 @@ export default function Contact() {
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = async (event) => {
-  event.preventDefault();
-  setIsSubmitting(true);
-  setResult("Envoi en cours...");
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setResult("Envoi en cours...");
 
-  const formData = new FormData(event.target);
-  formData.append("access_key", "6db3a538-c36c-4746-98ca-7af1fc3c41db");
+    const formData = new FormData(event.currentTarget);
+    formData.append("access_key", "6db3a538-c36c-4746-98ca-7af1fc3c41db");
 
-  // Convertir le FormData en un objet simple pour l'envoyer en JSON
-  const object = Object.fromEntries(formData);
-  const json = JSON.stringify(object);
+    // Convertir le FormData en un objet simple pour l'envoyer en JSON
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
-  try {
+    try {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
@@ -41,7 +41,7 @@ export default function Contact() {
   } finally {
     setIsSubmitting(false);
   }
-};
+  };
 
   return (
     <section id="contact" className="border-t px-5 py-16 md:px-8 md:py-24" style={{ background: 'var(--bg2)', borderColor: 'var(--border)' }}>
@@ -113,14 +113,13 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Colonne Droite : Formulaire avec effet Border-Gradient Premium */}
+          {/* Colonne Droite : Formulaire */}
           <div className="w-full relative rounded-[16px] p-[1px]" style={{ background: 'linear-gradient(135deg, transparent, var(--border), #C026D3/30)' }}>
             <form
               onSubmit={onSubmit}
               className="rounded-[15px] p-6 md:p-8 space-y-4"
               style={{ background: 'var(--form-bg)' }}
             >
-              {/* Options cachées pour personnaliser l'email reçu */}
               <input type="hidden" name="from_name" value="Portfolio - Samira" />
               <input type="hidden" name="subject" value="Nouveau message depuis ton Portfolio" />
 
@@ -156,7 +155,6 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Feedback d'envoi */}
               {result && (
                 <p className={`text-[13px] text-center font-medium py-1 ${result.includes("succès") ? "text-emerald-400" : "text-red-400"}`}>
                   {result}
