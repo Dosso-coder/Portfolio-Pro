@@ -12,35 +12,28 @@ export default function Contact() {
     setResult("Envoi en cours...");
 
     const formData = new FormData(event.currentTarget);
-    formData.append("access_key", "6db3a538-c36c-4746-98ca-7af1fc3c41db");
-
-    // Convertir le FormData en un objet simple pour l'envoyer en JSON
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
 
     try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: json,
-    });
+      // Intégration de ton endpoint Formspree
+      const response = await fetch("https://formspree.io/f/mpqgpnwq", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
 
-    const data = await response.json();
-
-    if (data.success) {
-      setResult("Message envoyé avec succès !");
-      event.target.reset();
-    } else {
-      setResult("Une erreur est survenue, réessayez.");
+      if (response.ok) {
+        setResult("Message envoyé avec succès !");
+        (event.target as HTMLFormElement).reset();
+      } else {
+        setResult("Une erreur est survenue, réessayez.");
+      }
+    } catch (error) {
+      setResult("Erreur de connexion.");
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    setResult("Erreur de connexion.");
-  } finally {
-    setIsSubmitting(false);
-  }
   };
 
   return (
@@ -120,9 +113,6 @@ export default function Contact() {
               className="rounded-[15px] p-6 md:p-8 space-y-4"
               style={{ background: 'var(--form-bg)' }}
             >
-              <input type="hidden" name="from_name" value="Portfolio - Samira" />
-              <input type="hidden" name="subject" value="Nouveau message depuis ton Portfolio" />
-
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text3)' }}>Prénom</label>
